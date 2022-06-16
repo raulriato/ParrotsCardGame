@@ -1,0 +1,41 @@
+body {
+    background-color: #eef9bf;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+ul {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+li {
+    width: 117px;
+    height: 146px;
+    border-radius: 5px;
+    background-color: rgba(167, 233, 175, 1);
+    border: 1px solid rgba(153, 206, 168, 1);
+    transition: .5s linear;
+    cursor: pointer;
+    position: relative;
+}
+
+.turn {
+    transform: rotateY(180deg);
+}
+
+li img {
+    width: 100px;
+    position: absolute;
+    top: 24px;
+    left: 10px;
+    transition: all 1s;
+}
+
+.hidden {
+    display: none;
+}

@@ -1,5 +1,5 @@
 let numberOfCards = prompt('Com quantas cartas você quer jogar? Escolha entre 4 e 14');
-let gifs = ['bobrossparrot.gif', 'explodyparrot.gif', 'fiestaparrot.gif', 'metalparrot.gif', 'revertitparrot.gif', 'tripletsparrot.gif', 'unicornparrot.gif']
+let gifs = ['bobross', 'explody', 'fiesta', 'metal', 'revertit', 'triplets', 'unicorn']
 
 function isInRange(numberOfCards){
     return Number(numberOfCards) >= 4 && Number(numberOfCards) <= 14;
@@ -38,7 +38,7 @@ function addCards(numberOfCards){
         cardTemplate = `
         <li onclick="flip(this)">
             <img src="./Images/front.png" class="front">
-            <img src="./Images/${insertGif[j]}" class="back">
+            <img src="./Images/${insertGif[j]}parrot.gif" class="back">
         </li>
         `
         //console.log(cardTemplate)
@@ -47,6 +47,34 @@ function addCards(numberOfCards){
     }
 }
 
+let flipped1;
+let flipped2;
+
 function flip(card){
+    flipped1 = document.querySelector('.turn');
+    console.log(flipped1);
     card.classList.toggle('turn');
+    if(flipped1 !== null && flipped1 !== card){
+        flipped2 = card
+        console.log(flipped2);
+        compareCards();
+    }
+}
+
+function unflipCards(){
+    flipped1.classList.remove('turn')
+    flipped2.classList.remove('turn')
+}
+
+
+function compareCards(){
+    if(flipped1.innerHTML !== flipped2.innerHTML){
+        console.log(flipped1 !== flipped2)
+        setTimeout(unflipCards, 1000);
+    } else {
+        flipped1.classList.remove('turn')
+        flipped2.classList.remove('turn')
+        flipped1.classList.add('turned')
+        flipped2.classList.add('turned')
+    }
 }

@@ -35,7 +35,7 @@ li {
     border-radius: 5px;
     background-color: rgba(167, 233, 175, 1);
     border: 1px solid rgba(153, 206, 168, 1);
-    transition: .5s linear;
+    transition: .5s;
     cursor: pointer;
     position: relative;
     margin: 17px;
@@ -51,14 +51,16 @@ li img {
     position: absolute;
     top: 24px;
     left: 10px;
-    transition: all .5s linear;
-}
-
-.front {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     backface-visibility: hidden;
 }
 
 .back {
     transform: rotateY(180deg);
-    backface-visibility: hidden;
+}
+
+.turned {
+    transform: rotateY(180deg);
 }

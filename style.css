@@ -2,7 +2,6 @@
 
 body {
     background-color: #eef9bf;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,14 +10,11 @@ body {
 }
 
 .title {
-    width: 543px;
     margin:40px 0 30px;
     font-size: 56px;
     font-weight: 700;
     color: rgba(117, 183, 158, 1);
-    position: fixed;
-    top: 40px;
-    left: calc(50vw - (543px/2));
+    text-align: center;
 }
 
 ul {
@@ -63,4 +59,11 @@ li img {
 
 .turned {
     transform: rotateY(180deg);
+}
+
+@media (max-width: 614px){
+    .title {
+        font-size: 36px;
+        font-weight: 700;
+    }
 }

@@ -38,7 +38,7 @@ function addCards(numberOfCards){
         cardTemplate = `
         <li onclick="flip(this)">
             <img src="./Images/front.png" class="front">
-            <img src="./Images/${insertGif[j]}" class="back hidden">
+            <img src="./Images/${insertGif[j]}" class="back">
         </li>
         `
         //console.log(cardTemplate)
@@ -49,19 +49,4 @@ function addCards(numberOfCards){
 
 function flip(card){
     card.classList.toggle('turn');
-    front = card.querySelector('.front');
-    back = card.querySelector('.back');
-    //console.log(front)
-    //console.log(back)
-    if (front.classList.contains('hidden')){
-        back.classList.add('hidden');
-        front.classList.remove('hidden');
-    } else if (back.classList.contains('hidden')){
-        front.classList.add('hidden');
-        back.classList.remove('hidden');
-    }
-}
-
-function changeCardImg(){
-    
 }

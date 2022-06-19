@@ -39,6 +39,7 @@ li {
     cursor: pointer;
     position: relative;
     margin: 17px;
+    transform-style: preserve-3d;
 }
 
 .turn {
@@ -50,9 +51,14 @@ li img {
     position: absolute;
     top: 24px;
     left: 10px;
-    transition: all 1s;
+    transition: all .5s linear;
 }
 
-.hidden {
-    display: none;
+.front {
+    backface-visibility: hidden;
+}
+
+.back {
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
 }

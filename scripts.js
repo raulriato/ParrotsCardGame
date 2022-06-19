@@ -1,5 +1,6 @@
 let numberOfCards = prompt('Com quantas cartas você quer jogar? Escolha entre 4 e 14');
-let gifs = ['bobross', 'explody', 'fiesta', 'metal', 'revertit', 'triplets', 'unicorn']
+let gifs = ['bobross', 'explody', 'fiesta', 'metal', 'revertit', 'triplets', 'unicorn'];
+let counter = 0;
 
 function isInRange(numberOfCards){
     return Number(numberOfCards) >= 4 && Number(numberOfCards) <= 14;
@@ -51,6 +52,10 @@ let flipped1;
 let flipped2;
 
 function flip(card){
+    counter += 1;
+    if(flipped1 && flipped2){
+        return
+    }
     flipped1 = document.querySelector('.turn');
     console.log(flipped1);
     card.classList.toggle('turn');
@@ -64,6 +69,8 @@ function flip(card){
 function unflipCards(){
     flipped1.classList.remove('turn')
     flipped2.classList.remove('turn')
+    flipped1 = null;
+    flipped2 = null;
 }
 
 
@@ -76,5 +83,15 @@ function compareCards(){
         flipped2.classList.remove('turn')
         flipped1.classList.add('turned')
         flipped2.classList.add('turned')
+        flipped1 = null;
+        flipped2 = null;
+    }
+    setTimeout(endGame, 1000);
+}
+
+function endGame(){
+    let flippedCards = document.querySelectorAll('.turned');
+    if(flippedCards.length === Number(numberOfCards)){
+        alert(`Você ganhou em ${counter} jogadas!`)
     }
 }
